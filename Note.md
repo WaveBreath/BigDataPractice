@@ -47,3 +47,30 @@ int operator+(byte ,byte)
 
 由于==和=易混淆
 ==前最好是值而不是变量名
+```
+outer: for(;;)
+	for(;;)
+		break outer;
+```
+break 标号;
+
+switch
+支持byte,short,char,int,enum,String
+不支持long、float、double、boolean
+### 任务5
+声明数组
+```
+int[] arr=new int[20];//[]在类型边上
+int[] arr={1,2,3};
+X int[] arr=new int[3]{1,2,3};//不行
+//数组为初始值
+```
+arr是指针，数据在堆上
+
+java.util.Arrays
+String Arrays.toString(int[])
+void Arrays.fill(int[],int)
+boolean Arrays.equals(int[],int[])
+void Arrays.sort(int[])
+int Arrays.binarySearch(int[],int)
+1、如果找到关键字，则返回值为关键字在数组中的位置索引，且索引从0开始2、如果没有找到关键字，返回值为负的插入点值，所谓插入点值就是第一个比关键字大的元素在数组中的位置索引，而且这个位置索引从1开始。
