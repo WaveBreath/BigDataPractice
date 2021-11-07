@@ -17,6 +17,10 @@ xxxx {//行末花括号，括号前带空格
 	xxxx//括号后空一行
 	int age = 18;//运算符前后加空格
 }
+//方法之间空一行
+yyy {
+
+}
 ### 任务2
 #### 课程3
 初始值：
@@ -100,7 +104,7 @@ void func(int... args){}
 利用this(xxxx);调用其他构造方法。（必须第一行）
 java 自动查找当前目录中其他文件中了类
 
-| 权限    | 类内 | 同包 | 不同包子类 | 不同包非子类 |
+| 权限    | 类内 | 同包 | 子类 | 不同包非子类 |
 | --------- | ---- | ---- | ---------- | ------------ |
 | private   | √  | ×   | ×         | ×           |
 | default   | √  | √  | ×         | ×           |
@@ -108,4 +112,84 @@ java 自动查找当前目录中其他文件中了类
 | public    | √  | √  | √        | √          |
 构造快：
 定义在类中，方法外部
-执行
+在构造方法之前对成员变量初始化
+静态代码块：
+static 修饰的构造块
+类加载的时候执行
+```mermaid
+	graph LR
+	父类静态代码块 --> 子类静态代码块 --> 父类构造块 --> 父类构造函数 -->子类构造块 --> 子类构造函数
+	子类构造函数 -- 新的对象 --> 父类构造块
+```
+
+java Main aaa bbb
+main({"aaa","bbb"})
+class Singleton{
+	//1.private 构造方法
+	//2.受限的getInstance方法
+	private Singleton(){}
+	private static sin=new Singleton();//推荐
+	public static getInstance(){return sin;}
+}
+用extends继承类
+pubilc class Worker extends Person{}
+构造方法和私有方法不能继承。私有成员可以被继承，但是不能直接访问。
+一个子类只有一个父类。
+标注@Override，下面的方法必须是对父类的重写（不然编译器报错）
+要求：
+1.方法名、参数列表、返回值相同
+2.访问权限不能变小
+```
+Project
+└──src
+   └──com.lagou.task08(组织域名反写.项目名称信息.模块名称.类名)
+	  └──Animal.java
+```
+导入类、静态成员
+```
+import static java.lang.System.out; 
+```
+final修饰的类不能被继承
+final修饰的方法不能被重写，可以被继承，可以被重载
+final修饰成员=const，在构造块、显示初始化、构造函数都可以初始化
+| C++ | Java |
+|-----|------|
+|虚函数 | 普通函数 |
+|纯虚函数 | 抽象函数 |
+|抽象类 | 抽象类 |
+|虚基类 | 接口 |
+抽象方法：abstract修饰的方法。抽象类才有抽象方法。
+abstract void xxx();
+抽象类：abstract修饰的类。
+接口，所有方法都是抽象方法，只能有常量。
+允许出现私有方法
+允许出现静态方法
+```
+class A extends D implements B,C {}
+interfact A extends B,C;
+
+```
+内部类可以也是public
+```
+Outer o=new Outer();
+Outer.Inner i=o.new Inner();
+```
+外部类.this，是外部类的this指针
+局部内部类没有访问修饰符，只在方法体内有效。
+局部内部类访问局部变量必须理解为final
+匿名内部类
+```
+Interface inf=new Interface() {
+	@Override
+	void show(){}
+}
+```
+枚举型构造方法是private，枚举值放在最前面
+x.compareTo(y)
+=x.ordinal()-y.ordinal()
+
+访问修饰符 @interface xxx{
+	public String value() default "xxx";//声明成员变量
+}
+@xxx(value="hello")
+注解没有成员方法。
