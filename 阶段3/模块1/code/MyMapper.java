@@ -15,6 +15,6 @@ public class MyMapper extends Mapper<LongWritable,Text,LongWritable,NullWritable
 	protected void map(LongWritable key, Text value,
 			Mapper<LongWritable, Text, LongWritable, NullWritable>.Context context)
 			throws IOException, InterruptedException {
-			context.write(new LongWritable(Long.parseLong(value.toString())), NullWritable.get());
+			context.write(new LongWritable(Long.parseLong(value.toString())), NullWritable.get());//将数字变成key，排序交给shuffer
 	}
 }

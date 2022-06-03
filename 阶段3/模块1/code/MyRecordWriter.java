@@ -39,6 +39,7 @@ public class MyRecordWriter extends RecordWriter<LongWritable,NullWritable>{
 		if(fdos!=null){
 			fdos.writeBytes(""+counter+"\t"+arg0.get()+"\n");
 			counter++;
+			//在输出的时候加上rank
 		}
 		
 	}

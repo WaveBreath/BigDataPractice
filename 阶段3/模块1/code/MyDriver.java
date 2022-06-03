@@ -28,7 +28,7 @@ public class MyDriver {
 		rank.setOutputValueClass(NullWritable.class);
 		
 
-		CombineTextInputFormat.setMaxInputSplitSize(rank, 1<<20);
+		CombineTextInputFormat.setMaxInputSplitSize(rank, 1<<20);//3个小文件，用1M的split
 		rank.setInputFormatClass(CombineTextInputFormat.class);
 		rank.setOutputFormatClass(MyOutput.class);
 		FileInputFormat.setInputPaths(rank,new Path("/root/Projects/input/rank"));
